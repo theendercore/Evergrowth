@@ -7,6 +7,7 @@ import net.minecraft.world.item.Item.Properties
 import net.minecraft.world.item.ItemNameBlockItem
 import org.teamvoided.evergrowth.Evergrowth.id
 import org.teamvoided.evergrowth.init.helpers.EverFoods
+import org.teamvoided.evergrowth.item.Red40Item
 
 
 @Suppress("unused", "MemberVisibilityCanBePrivate")
@@ -18,7 +19,8 @@ object EverItems {
         register("strawberry", ItemNameBlockItem(EverBlocks.STRAWBERRY_PATCH, Properties().food(EverFoods.STRAWBERRY)))
     val STRAWBERRY_JAM = register("strawberry_jam", Item(Properties().food(EverFoods.STRAWBERRY_JAM)))
     val STRAWBERRY_TOAST = register("strawberry_toast", Item(Properties().food(EverFoods.STRAWBERRY_TOAST)))
-    val RED40 = register("red40", Item(Properties().food(EverFoods.RED40)))
+    val RED40 = register("red40", Red40Item(Properties().food(EverFoods.RED40)))
+
     val HOLY_BLOOD = register("holy_blood", Item(Properties()))
     val HEART_OF_THE_HARVEST = register("heart_of_the_harvest", Item(Properties()))
     val ALTALUNE = register("altalune", Item(Properties()))
