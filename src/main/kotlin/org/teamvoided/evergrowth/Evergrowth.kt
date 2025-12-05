@@ -1,20 +1,19 @@
-package org.teamvoided.template
+package org.teamvoided.evergrowth
 
 import me.fzzyhmstrs.fzzy_config.api.ConfigApi
 import net.minecraft.resources.ResourceLocation
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import org.teamvoided.template.config.TemplateConfig
+import org.teamvoided.evergrowth.config.EvergrowthConfig
 
-@Suppress("unused")
-object Template {
-    const val MODID = "template"
-
-    @JvmField
-    val log: Logger = LoggerFactory.getLogger(Template::class.simpleName)
+object Evergrowth {
+    const val MODID = "evergrowth"
 
     @JvmField
-    var config = ConfigApi.registerAndLoadConfig(::TemplateConfig)
+    val log: Logger = LoggerFactory.getLogger(Evergrowth::class.simpleName)
+
+    @JvmField
+    var config = ConfigApi.registerAndLoadConfig(::EvergrowthConfig)
 
     fun init() {
         log.info("Hello from Common")

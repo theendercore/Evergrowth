@@ -1,2 +1,2 @@
-# The TeamVoided Template
-Template mod by TeamVoided
+# Evergrowth
+BSMP commission mod made for ever.
