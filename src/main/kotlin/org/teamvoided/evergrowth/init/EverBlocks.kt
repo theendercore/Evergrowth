@@ -5,8 +5,11 @@ import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.world.item.BlockItem
 import net.minecraft.world.item.Item
 import net.minecraft.world.level.block.*
-import net.minecraft.world.level.block.state.BlockBehaviour
+import net.minecraft.world.level.block.state.BlockBehaviour.Properties
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties.ofFullCopy
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument
+import net.minecraft.world.level.material.MapColor
+import net.minecraft.world.level.material.PushReaction
 import org.teamvoided.evergrowth.Evergrowth.id
 import org.teamvoided.evergrowth.init.helpers.EverBlockFamilies
 import org.teamvoided.evergrowth.init.helpers.cutout
@@ -17,7 +20,12 @@ import org.teamvoided.evergrowth.init.helpers.translucent
 @Suppress("unused", "MemberVisibilityCanBePrivate")
 object EverBlocks {
     val BLOCKS = mutableListOf<Block>()
-    val HOLY_PROP: BlockBehaviour.Properties = ofFullCopy(Blocks.DEEPSLATE)
+    val HOLY_PROP: Properties = Properties.of()
+        .mapColor(MapColor.STONE)
+        .instrument(NoteBlockInstrument.BASEDRUM)
+        .requiresCorrectToolForDrops()
+        .strength(3.0F, 6.0F)
+        .sound(SoundType.DEEPSLATE)
 
     val BLOOD_MOSS = register("blood_moss", Block(ofFullCopy(Blocks.MOSS_BLOCK)))
     val BLOOD_MOSS_CARPET = register("blood_moss_carpet", CarpetBlock(ofFullCopy(Blocks.MOSS_CARPET)))
@@ -28,7 +36,19 @@ object EverBlocks {
     val HOLYSTONE_WALL = register("holystone_wall", WallBlock(HOLY_PROP))
 
     val STRAWBERRY_PATCH = registerNoItem("strawberry_patch", Block(ofFullCopy(Blocks.PINK_PETALS))).cutout()
-    val HOLY_LANTERN = register("holy_lantern", LanternBlock(ofFullCopy(Blocks.LANTERN))).cutout()
+    val HOLY_LANTERN = register(
+        "holy_lantern",
+        LanternBlock(
+            Properties.of()
+                .mapColor(MapColor.GOLD)
+                .forceSolidOn()
+                .strength(3.5F)
+                .sound(SoundType.LANTERN)
+                .lightLevel { 15 }
+                .noOcclusion()
+                .pushReaction(PushReaction.DESTROY))
+    ).cutout()
+
     val FOLLY_RED_GLASS =
         register("folly_red_glass", TransparentBlock(ofFullCopy(Blocks.PINK_STAINED_GLASS))).translucent()
     val FOLLY_RED_GLASS_PANE =
