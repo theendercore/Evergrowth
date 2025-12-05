@@ -4,6 +4,11 @@ import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator
 import net.minecraft.core.RegistrySetBuilder
 import org.teamvoided.evergrowth.Evergrowth.log
+import org.teamvoided.evergrowth.data.gen.prov.assets.EnLangProvider
+import org.teamvoided.evergrowth.data.gen.prov.assets.ModelProvider
+import org.teamvoided.evergrowth.data.gen.prov.data.BlockLootTableProvider
+import org.teamvoided.evergrowth.data.gen.prov.data.tag.BlockTagsProvider
+import org.teamvoided.evergrowth.data.gen.prov.data.tag.ItemTagsProvider
 
 @Suppress("unused")
 object EvergrowthData : DataGeneratorEntrypoint {
@@ -11,7 +16,13 @@ object EvergrowthData : DataGeneratorEntrypoint {
         log.info("Hello from DataGen")
         val pack = gen.createPack()
 
-//        pack.addProvider(::TemplateWorldGenerator)
+        // Assets
+        pack.addProvider(::ModelProvider)
+        pack.addProvider(::EnLangProvider)
+        // Data
+        pack.addProvider(::BlockLootTableProvider)
+        val bt = pack.addProvider(::BlockTagsProvider)
+        pack.addProvider { o, r -> ItemTagsProvider(o, r, bt) }
     }
 
     override fun buildRegistry(gen: RegistrySetBuilder) {

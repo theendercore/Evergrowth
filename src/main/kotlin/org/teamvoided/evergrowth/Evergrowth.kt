@@ -5,6 +5,10 @@ import net.minecraft.resources.ResourceLocation
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.teamvoided.evergrowth.config.EvergrowthConfig
+import org.teamvoided.evergrowth.init.EverBlocks
+import org.teamvoided.evergrowth.init.EverEntities
+import org.teamvoided.evergrowth.init.EverItems
+import org.teamvoided.evergrowth.init.EverTabs
 
 object Evergrowth {
     const val MODID = "evergrowth"
@@ -16,7 +20,10 @@ object Evergrowth {
     var config = ConfigApi.registerAndLoadConfig(::EvergrowthConfig)
 
     fun init() {
-        log.info("Hello from Common")
+        EverItems.init()
+        EverBlocks.init()
+        EverTabs.init()
+        EverEntities.init()
     }
 
     fun id(namespace: String, path: String): ResourceLocation = ResourceLocation.fromNamespaceAndPath(namespace, path)
