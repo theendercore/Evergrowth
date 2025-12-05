@@ -19,7 +19,7 @@ object EverFoods {
         .build()
 
     fun food(nutrition: Int, saturation: Float): FoodProperties.Builder =
-        FoodProperties.Builder().nutrition(2).saturationModifier(saturation)
+        FoodProperties.Builder().nutrition(nutrition).saturationModifier(saturation)
 
     fun FoodProperties.Builder.effect(
         effect: Holder<MobEffect>, length: Int, amplifier: Int = 0,
