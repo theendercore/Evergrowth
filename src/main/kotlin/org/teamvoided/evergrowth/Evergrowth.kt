@@ -1,10 +1,10 @@
 package org.teamvoided.evergrowth
 
-import me.fzzyhmstrs.fzzy_config.api.ConfigApi
 import net.minecraft.resources.ResourceLocation
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import org.teamvoided.evergrowth.config.EvergrowthConfig
+//import me.fzzyhmstrs.fzzy_config.api.ConfigApi
+//import org.teamvoided.evergrowth.config.EvergrowthConfig
 import org.teamvoided.evergrowth.init.EverBlocks
 import org.teamvoided.evergrowth.init.EverEntities
 import org.teamvoided.evergrowth.init.EverItems
@@ -16,8 +16,8 @@ object Evergrowth {
     @JvmField
     val log: Logger = LoggerFactory.getLogger(Evergrowth::class.simpleName)
 
-    @JvmField
-    var config = ConfigApi.registerAndLoadConfig(::EvergrowthConfig)
+//    @JvmField
+//    var config = ConfigApi.registerAndLoadConfig(::EvergrowthConfig)
 
     fun init() {
         EverItems.init()
