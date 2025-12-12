@@ -29,4 +29,6 @@ object Evergrowth {
     fun id(namespace: String, path: String): ResourceLocation = ResourceLocation.fromNamespaceAndPath(namespace, path)
     fun mc(path: String): ResourceLocation = ResourceLocation.withDefaultNamespace(path)
     fun id(path: String) = id(MODID, path)
+
+    inline fun<reified T> Any?.cast(): T = this as T
 }
