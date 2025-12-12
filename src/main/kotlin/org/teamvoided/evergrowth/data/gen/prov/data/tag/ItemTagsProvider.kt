@@ -15,6 +15,7 @@ class ItemTagsProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
     override fun addTags(lookup: HolderLookup.Provider) {
         getOrCreateTagBuilder(ItemTags.HOES).add(EverItems.ALTALUNE)
         getOrCreateTagBuilder(ItemTags.SHOVELS).add(EverItems.SOLANUM)
+        getOrCreateTagBuilder(ConventionalItemTags.MUSIC_DISCS).add(EverItems.MEOW_DISC)
 
 
         copy(BlockTags.STAIRS, ItemTags.STAIRS)

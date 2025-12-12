@@ -30,6 +30,7 @@ class ModelProvider(o: FabricDataOutput) : FabricModelProvider(o) {
             EverItems.HEART_OF_THE_HARVEST,
             EverItems.ALTALUNE,
             EverItems.SOLANUM,
+            EverItems.MEOW_DISC,
         )
         for (item in faltItems) {
             gen.generateFlatItem(item, ModelTemplates.FLAT_ITEM)
