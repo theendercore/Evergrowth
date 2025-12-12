@@ -2,11 +2,8 @@ package org.teamvoided.evergrowth.init
 
 import net.minecraft.core.Registry
 import net.minecraft.core.registries.BuiltInRegistries
-import net.minecraft.world.item.Item
+import net.minecraft.world.item.*
 import net.minecraft.world.item.Item.Properties
-import net.minecraft.world.item.ItemNameBlockItem
-import net.minecraft.world.item.JukeboxSongs
-import net.minecraft.world.item.Rarity
 import org.teamvoided.evergrowth.Evergrowth.id
 import org.teamvoided.evergrowth.init.helpers.EverFoods
 import org.teamvoided.evergrowth.item.Red40Item
@@ -25,9 +22,15 @@ object EverItems {
 
     val HOLY_BLOOD = register("holy_blood", Item(Properties()))
     val HEART_OF_THE_HARVEST = register("heart_of_the_harvest", Item(Properties()))
-    val ALTALUNE = register("altalune", Item(Properties()))
-    val SOLANUM = register("solanum", Item(Properties()))
-    val MEOW_DISC = register("meow_disc", Item(Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(JukeboxSongs.CAT)))
+    val ALTALUNE = register(
+        "altalune", HoeItem(Tiers.GOLD, Properties().attributes(HoeItem.createAttributes(Tiers.IRON, -1.0f, -2.0f)))
+    )
+    val SOLANUM = register(
+        "solanum", ShovelItem(Tiers.GOLD, Properties().attributes(ShovelItem.createAttributes(Tiers.IRON, 1.5f, -3.0f)))
+    )
+
+    val MEOW_DISC =
+        register("meow_disc", Item(Properties().stacksTo(1).rarity(Rarity.RARE).jukeboxPlayable(JukeboxSongs.CAT)))
 
     fun init() = Unit
     fun register(id: String, item: Item): Item {
