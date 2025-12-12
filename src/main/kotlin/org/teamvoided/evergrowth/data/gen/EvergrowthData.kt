@@ -9,6 +9,7 @@ import org.teamvoided.evergrowth.data.gen.prov.assets.ModelProvider
 import org.teamvoided.evergrowth.data.gen.prov.data.BlockLootTableProvider
 import org.teamvoided.evergrowth.data.gen.prov.data.RecipeProvider
 import org.teamvoided.evergrowth.data.gen.prov.data.tag.BlockTagsProvider
+import org.teamvoided.evergrowth.data.gen.prov.data.tag.EntityTypeTagsProvider
 import org.teamvoided.evergrowth.data.gen.prov.data.tag.ItemTagsProvider
 
 @Suppress("unused")
@@ -24,6 +25,7 @@ object EvergrowthData : DataGeneratorEntrypoint {
         pack.addProvider(::BlockLootTableProvider)
         val bt = pack.addProvider(::BlockTagsProvider)
         pack.addProvider { o, r -> ItemTagsProvider(o, r, bt) }
+        pack.addProvider(::EntityTypeTagsProvider)
         pack.addProvider(::RecipeProvider)
     }
 
